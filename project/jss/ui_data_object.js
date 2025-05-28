@@ -1069,8 +1069,9 @@ export class UIDataObject {
                                         break;
                                 }
                             });
-                            if(movieString !="Movie(s) :"){
-                            knownForString += movieString;}
+                            if (movieString != "Movie(s) :") {
+                                knownForString += movieString;
+                            }
 
                         }
                         if (series && series.length > 0) {
@@ -1088,13 +1089,14 @@ export class UIDataObject {
                                         break;
                                 }
                             });
-                            if(seriesString!="Tv :"){
-                            knownForString += seriesString;}
+                            if (seriesString != "Tv :") {
+                                knownForString += seriesString;
+                            }
                         }
-                          
+
 
                     }
-                    UIDataObject.createRubyNotationText(personList[index + URLGenerator.pageVariables.nextPageCount].value.name,knownForString, personResultDiv);
+                    UIDataObject.createRubyNotationText(personList[index + URLGenerator.pageVariables.nextPageCount].value.name, knownForString, personResultDiv);
 
 
                 });
@@ -1745,7 +1747,7 @@ imageObject; */
 
                                         let overviewParagraph = document.createElement("p");
                                         document.innerText = season.overview;
-                                        seasonnDetailsElement.append(overviewParagraph);
+                                        seasonDetailsElement.append(overviewParagraph);
 
 
                                     }
@@ -2265,17 +2267,23 @@ imageObject; */
                         Gender: personResult.gender
                     };
 
-                    keyArray = ["Biography",
-                        "Birthplace",
-                        "Birthday",
-                        "Deathday",
-                        "Gender"
+                    keyArray = ["Biography: ",
+                        "Birthplace: ",
+                        "Birthday: ",
+                        "Deathday: ",
+                        "Gender: "
                     ];
                     counter = 0;
                     resultText = "";
                     for (const key in personalObject) {
                         if (personalObject[key]) {
+
+
                             keyArray[counter] += personalObject[key];
+                            resultText += keyArray[counter] + "\n";
+
+                        } else if (personalObject[key] == null) {
+                            keyArray[counter] += "Not known";
                             resultText += keyArray[counter] + "\n";
 
                         }
@@ -2289,7 +2297,7 @@ imageObject; */
 
                     let personalDetailElement = document.createElement("details");
                     let personalSummaryElement = document.createElement("summary");
-                    personalDetailElement.innerText = JSON.stringify(personalObject);
+                    personalDetailElement.innerText = resultText;
                     personalSummaryElement.innerText = "Personal: ";
 
                     personalDetailElement.append(personalSummaryElement);
@@ -2365,7 +2373,34 @@ imageObject; */
                     h4Heading.innerText = resultText;
                     let h5Heading = document.createElement("h5");
                     resultText = "";
-                    resultText += movieResult.tagline;
+                    if (movieResult.tagline || movieResult.movieGenreArray) {
+
+                        if (movieResult.tagline) {
+                            resultText += movieResult.tagline + "\n";
+                        }
+                        else if (movieResult.movieGenreArray) {
+
+                            movieResult.movieGenreArray.forEach((arrayElement, index) => {
+                                switch (index) {
+                                    case movieResult.movieGenreArray.length - 1:
+                                        resultText += arrayElement.genreName + "\n";
+
+
+                                        break;
+
+                                    default:
+                                        resultText += arrayElement.genreName + ", ";
+
+                                        break;
+                                }
+
+
+
+
+                            });
+                        }
+                    }
+
 
                     h5Heading.innerText = resultText;
                     copyOfResultDiv.append(h4Heading, h5Heading);

@@ -79,6 +79,7 @@ body, html {
 #title_element{
 
     padding-block: 1px;
+    height: min-content;
 
   
 
@@ -134,7 +135,7 @@ background-repeat: no-repeat;
     background-color: #808080BB;
 
 
-    overflow:auto;
+    overflow-y:auto;
     margin: 0px;
 
    
@@ -155,11 +156,12 @@ background-repeat: no-repeat;
     justify-items: start;
     align-items: center;
     z-index: 4;
-    overflow: auto;
+    overflow-y: auto;
+    height: auto;
 
     
-      background-size: contain;
-background-repeat: no-repeat;
+    background-size : (contain);
+    background-repeat:( no-repeat);
 
     background-color: gray;
 }
@@ -179,6 +181,7 @@ background-repeat: no-repeat;
     display: block;
     height: fit-content;
     width: fit-content;
+    overflow-y: auto;
 
 
 }
@@ -191,17 +194,38 @@ background-repeat: no-repeat;
     
 } 
 
+#result_focused_div > h5, #result_focused_div > h4{
+    background-color: darkred;
+        background-image: transparent;
+        background-blend-mode: hue ;
+        color: aquamarine;
+        padding: 2%;
+        border-radius: 100%;
+        height: min-content;
+
+}
+
+#result_focused_div > div.ruby_div > ruby > rt {
+display: inline-block;
+text-wrap: pretty ;
+padding: 1rem;        
+}
+
+
+
 #on_focused_details_wrapper_div{
    /*  display: flex;
     flex-direction: column; */
      
 
-    overflow: auto;
+    overflow-y: auto;
 
-    height: 50dvh;
+    height: auto;
+    padding-bottom: 1rem;
     width: 50dvw;
     
     background-color: gray;
+    opacity: 0.95;
     border: 0.3dvh solid black;
 
     
@@ -222,7 +246,7 @@ background-repeat: no-repeat;
 color:aquamarine;
     background-color: darkred;
         border: 0.3dvh solid black;
-        overflow: auto;
+        overflow-y: auto;
 
 
 }
@@ -231,13 +255,13 @@ color:aquamarine;
     height: min-content;
     background-color: gray;
     border: 0.3dvh solid black;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 #on_focused_details_wrapper_div details{
 
         border: 0.3dvh solid aquamarine;
-        overflow:auto;
+        overflow-y:auto;
 
 }
 
