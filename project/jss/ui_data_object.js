@@ -1027,10 +1027,11 @@ export class UIDataObject {
         let totalPages;
         let totalResults;
         const personEntityPromise = ApiClient.ApiClient.getPersonList(tableEndpoint).then((personResultList) => {
+             totalPages = personResultList.totalPages;
+                totalResults = personResultList.totalResults;
             Promise.allSettled(personResultList.personResults).then((personList) => {
                 const personResultsContainerDiv = document.getElementById("person_selection_div");
-                totalPages = personList.totalPages;
-                totalResults = personList.totalResults;
+               
 
                 if (personResultsContainerDiv.hasChildNodes) {
 

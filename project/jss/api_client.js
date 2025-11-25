@@ -478,6 +478,7 @@ export class ApiClient {
 
         }).then((json) => {
             let personResultList = new PersonResultList(json);
+            console.log(personResultList);
 
             return personResultList;
 
