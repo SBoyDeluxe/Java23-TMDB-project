@@ -1293,7 +1293,7 @@ imageObject; */
                     }
                     //for last element we should have a img-tag as fallback 
                     let fallBackImg = document.createElement("img");
-                    fallBackImg.setAttribute("src", imageSourceArray[j].urlStrings[0]);
+                    fallBackImg.setAttribute("src", "../../static_assets/no-image-svgrepo-com.png");
                     pictureElement.append(fallBackImg);
 
 
@@ -1959,7 +1959,7 @@ imageObject; */
                      selectedResultbackgroundDiv.append(backButtonSvg); */
                     selectedResultbackgroundDiv.append(copyOfResultDiv);
                     let nav = document.getElementById("navigation_menu");
-                    nav.append(backButtonSvg);
+                    copyOfResultDiv.prepend(backButtonSvg);
                     nav.append(navHeading);
 
                     backButtonSvg.addEventListener("click", () => {
@@ -2746,7 +2746,7 @@ function setUpTvSearchOptions() {
                     case 0:
                         {
                             if (value) {
-                                queryParameters[index] = "query=" + tvSearchTextInput.value;
+                                queryParameters[index] = "query=" + tvSearchTextInput.value.replaceAll(" ","+");
                             }
 
                         }
@@ -2880,7 +2880,7 @@ function setUpMovieSearchOptions() {
                     case 0:
                         {
                             if (value) {
-                                queryParameters[index] = "query=" + movieSearchTextInput.value;
+                                queryParameters[index] = "query=" + movieSearchTextInput.value.replaceAll(" ","+");
                             }
 
                         }
@@ -2952,7 +2952,7 @@ function setUpPersonSearchOptions() {
 
         if (personSearchInput.value) {
 
-            let nameQueryParameter = "query=" + personSearchInput.value;
+            let nameQueryParameter = "query=" + personSearchInput.value.replaceAll(" ","+");
             let numberOfResults = personNumberOfResultsPerPage.value;
             let searchEndpoint = URLGenerator.getSearchEndpoint(URLGenerator.tableEndpoints.person, [nameQueryParameter]);
             UIDataObject.getSelectionOfPeople(searchEndpoint, numberOfResults);

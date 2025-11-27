@@ -1,75 +1,84 @@
 /* Set height of body and the document to 100% to enable "full page tabs" */
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: Arial;
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
 }
 
 /* Style tab links */
 .tablink {
-  background-color: #555;
-  color: white;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  font-size: 17px;
-  width: 25%;
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 33.33%;
 }
 
 .tablink:hover {
-  background-color: #777;
+    background-color: #777;
 }
 
 /* Style the tab content (and add height:100% for full page content) */
 .tabcontent {
-  color: white;
-  display: none;
-  padding: 100px 20px;
-  height: 100%;
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
 }
 
-#Home {background-color: red;}
-#News {background-color: green;}
-#Contact {background-color: blue;}
-#About {background-color: orange;}
+
+
 /*For the resultboxes, declaring the hidden genres of select categories (person/tv/movie)*/
-.not_displayed_results, .not_displayed_results > *{
+.not_displayed_results,
+.not_displayed_results>* {
     display: none;
 
 
 }
 
-.displayed_results > *{
+.displayed_results>* {
 
-    display:contents;
+    display: contents;
 }
-.displayed_results picture{
+
+.displayed_results picture {
 
     cursor: pointer;
 }
+
+.displayed_result_div >img,picture{
+    cursor: pointer;
+}
+
 /*declaring elements to be shown specific to the current results */
-.displayed_element, .displayed_element > *{
-    display:inline-block;
+.displayed_element,
+.displayed_element>* {
+    display: inline-block;
 
 }
 
-.not_displayed_element, .not_displayed_element > *{
+.not_displayed_element,
+.not_displayed_element>* {
 
-    display:none;
+    display: none;
 }
 
-#titlediv{
+#titlediv {
     flex-direction: row;
     margin-top: 0px;
     border-bottom: 0.5vh dotted black;
-    
 
 
-    
+
+
 }
-#header_div{
+
+#header_div {
 
     display: flex;
     flex-direction: column;
@@ -80,45 +89,49 @@ body, html {
 
 }
 
-#title_element{
+#title_element {
 
     padding-block: 1px;
     height: min-content;
 
-  
+
 
 }
 
 
-#navigation_div{
+#navigation_div {
     display: grid;
-     z-index: 3;
-     width: 100%;
-     grid-auto-rows: 50% 50%;
-     
-     
+    z-index: 3;
+    width: 100%;
+    grid-auto-rows: 50% 50%;
+
+
 }
 
- #back_button{
+#back_button {
     display: inline-block;
     border: 0.3dvh solid black;
-    height:10dvh;
+    height: 10dvh;
     z-index: 5;
     padding: 0px;
     margin-bottom: 0px;
+    align-self: flex-start;
+    background-color: white;
+    cursor: pointer;
 }
 
-#nav_result_title{
+#nav_result_title {
     display: inline;
     position: relative;
     left: 20%;
-   
 
-   
+
+
 
 }
 
-#focused_background_div{
+#focused_background_div {
+    anchor-name: --graybox;
     display: flex;
     flex-direction: column;
     position: sticky;
@@ -127,11 +140,11 @@ body, html {
     justify-content: flex-start;
     align-content: center;
 
-      background-size: contain;
-background-repeat: no-repeat;
+    background-size: contain;
+    background-repeat: no-repeat;
 
-    
-  
+
+
     top: 0px;
     left: 0px;
     width: 100dvw;
@@ -139,13 +152,13 @@ background-repeat: no-repeat;
     background-color: #808080BB;
 
 
-    overflow-y:auto;
+    overflow-y: auto;
     margin: 0px;
 
-   
+
 
     z-index: 2;
-    
+
 }
 
 /* /* .focused {
@@ -154,7 +167,7 @@ background-repeat: no-repeat;
     
 
 } */
-#result_focused_div{
+#result_focused_div {
     display: flex;
     flex-direction: column;
     justify-items: start;
@@ -163,14 +176,14 @@ background-repeat: no-repeat;
     overflow-y: auto;
     height: auto;
 
-    
-    background-size : (contain);
-    background-repeat:( no-repeat);
+
+    background-size: (contain);
+    background-repeat: (no-repeat);
 
     background-color: gray;
 }
 
-#result_focused_div .ruby_div{
+#result_focused_div .ruby_div {
     display: inline;
     font-size: 1.7rem;
 
@@ -180,7 +193,7 @@ background-repeat: no-repeat;
     width: 30dvw;
 }
 
-#main_result_wrapper_div{
+#main_result_wrapper_div {
 
     display: block;
     height: fit-content;
@@ -191,51 +204,53 @@ background-repeat: no-repeat;
 }
 
 
-.focused picture > img{
+.focused picture>img {
 
     max-width: 40vw;
     max-height: 40vh;
-    
-} 
 
-#result_focused_div > h5, #result_focused_div > h4{
+}
+
+#result_focused_div>h5,
+#result_focused_div>h4 {
     background-color: darkred;
-        background-image: transparent;
-        background-blend-mode: hue ;
-        color: aquamarine;
-        padding: 2%;
-        border-radius: 100%;
-        height: min-content;
+    background-image: transparent;
+    background-blend-mode: hue;
+    color: aquamarine;
+    padding: 2%;
+    border-radius: 100%;
+    height: min-content;
 
 }
 
-#result_focused_div > div.ruby_div > ruby > rt {
-display: inline-block;
-text-wrap: pretty ;
-padding: 1rem;        
+#result_focused_div>div.ruby_div>ruby>rt {
+    display: inline-block;
+    text-wrap: pretty;
+    padding: 1rem;
 }
 
 
 
-#on_focused_details_wrapper_div{
-   /*  display: flex;
+#on_focused_details_wrapper_div {
+    /*  display: flex;
     flex-direction: column; */
-     
+
 
     overflow-y: auto;
 
     height: auto;
     padding-bottom: 1rem;
     width: 50dvw;
-    
+
     background-color: gray;
     opacity: 0.95;
     border: 0.3dvh solid black;
 
-    
+
 
 
 }
+
 /* 
 #on_focused_details_wrapper_div summary{
     color: aquamarine;
@@ -246,11 +261,13 @@ padding: 1rem;
 
 } */
 
-#on_focused_details_wrapper_div details h5, #on_focused_details_wrapper_div details p, #on_focused_details_wrapper_div details{
-color:aquamarine;
+#on_focused_details_wrapper_div details h5,
+#on_focused_details_wrapper_div details p,
+#on_focused_details_wrapper_div details {
+    color: aquamarine;
     background-color: darkred;
-        border: 0.3dvh solid black;
-        overflow-y: auto;
+    border: 0.3dvh solid black;
+    overflow-y: auto;
 
 
 }
@@ -262,10 +279,10 @@ color:aquamarine;
     overflow-y: auto;
 }
 
-#on_focused_details_wrapper_div details{
+#on_focused_details_wrapper_div details {
 
-        border: 0.3dvh solid aquamarine;
-        overflow-y:auto;
+    border: 0.3dvh solid aquamarine;
+    overflow-y: auto;
 
 }
 
@@ -287,7 +304,7 @@ color:aquamarine;
 } */
 
 #tv_top_10_filter_results_div {
-display: grid;
-grid-auto-flow: column;
+    display: grid;
+    grid-auto-flow: column;
 
 }
